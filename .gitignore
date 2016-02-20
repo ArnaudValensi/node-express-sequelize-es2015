@@ -1,0 +1,12 @@
+npm-debug.log
+node_modules
+ntask.sqlite
+public
+logs
+
+# osx
+.DS_Store
+
+# emacs
+*~
+\#*
