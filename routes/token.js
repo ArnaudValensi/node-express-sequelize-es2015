@@ -1,4 +1,4 @@
-import jwt from "jwt-simple";
+import jwt from 'jwt-simple';
 
 module.exports = app => {
   const cfg = app.libs.config;
@@ -21,16 +21,16 @@ module.exports = app => {
    * @apiErrorExample {json} Authentication error
    *    HTTP/1.1 401 Unauthorized
    */
-  app.post("/token", (req, res) => {
+  app.post('/token', (req, res) => {
     if (req.body.email && req.body.password) {
       const email = req.body.email;
       const password = req.body.password;
-      Users.findOne({where: {email: email}})
+      Users.findOne({ where: { email } })
         .then(user => {
           if (Users.isPassword(user.password, password)) {
-            const payload = {id: user.id};
+            const payload = { id: user.id };
             res.json({
-              token: jwt.encode(payload, cfg.jwtSecret)
+              token: jwt.encode(payload, cfg.jwtSecret),
             });
           } else {
             res.sendStatus(401);

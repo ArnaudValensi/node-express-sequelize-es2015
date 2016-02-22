@@ -1,7 +1,7 @@
 module.exports = app => {
   const Tasks = app.db.models.Tasks;
 
-  app.route("/tasks")
+  app.route('/tasks')
     .all(app.auth.authenticate())
     /**
      * @api {get} /tasks List the user's tasks
@@ -31,11 +31,11 @@ module.exports = app => {
      */
     .get((req, res) => {
       Tasks.findAll({
-        where: { user_id: req.user.id }
+        where: { user_id: req.user.id },
       })
       .then(result => res.json(result))
       .catch(error => {
-        res.status(412).json({msg: error.message});
+        res.status(412).json({ msg: error.message });
       });
     })
     /**
@@ -71,11 +71,11 @@ module.exports = app => {
       Tasks.create(req.body)
         .then(result => res.json(result))
         .catch(error => {
-          res.status(412).json({msg: error.message});
+          res.status(412).json({ msg: error.message });
         });
     });
 
-  app.route("/tasks/:id")
+  app.route('/tasks/:id')
     .all(app.auth.authenticate())
     /**
      * @api {get} /tasks/:id Get a task
@@ -108,8 +108,8 @@ module.exports = app => {
     .get((req, res) => {
       Tasks.findOne({ where: {
         id: req.params.id,
-        user_id: req.user.id
-      }})
+        user_id: req.user.id,
+      } })
       .then(result => {
         if (result) {
           res.json(result);
@@ -118,7 +118,7 @@ module.exports = app => {
         }
       })
       .catch(error => {
-        res.status(412).json({msg: error.message});
+        res.status(412).json({ msg: error.message });
       });
     })
     /**
@@ -143,11 +143,11 @@ module.exports = app => {
     .put((req, res) => {
       Tasks.update(req.body, { where: {
         id: req.params.id,
-        user_id: req.user.id
-      }})
+        user_id: req.user.id,
+      } })
       .then(result => res.sendStatus(204))
       .catch(error => {
-        res.status(412).json({msg: error.message});
+        res.status(412).json({ msg: error.message });
       });
     })
     /**
@@ -165,11 +165,11 @@ module.exports = app => {
     .delete((req, res) => {
       Tasks.destroy({ where: {
         id: req.params.id,
-        user_id: req.user.id
-      }})
+        user_id: req.user.id,
+      } })
       .then(result => res.sendStatus(204))
       .catch(error => {
-        res.status(412).json({msg: error.message});
+        res.status(412).json({ msg: error.message });
       });
     });
 };
