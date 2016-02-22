@@ -1,0 +1,25 @@
+{
+  "parser"  : "babel-eslint",
+  "extends" : [
+    "airbnb/base"
+  ],
+  "plugins" : [
+    "flow-vars"
+  ],
+  "env"     : {
+    "node": true
+  },
+  "rules": {
+    "semi" : [2, "always"],
+    "no-param-reassign": [2, {"props": false}],
+    "func-names": 0,
+    "no-console": 0,
+    "one-var": 0,
+    "new-cap": 0,
+    "quote-props": 0,
+    "prefer-template": 0,
+    "arrow-body-style": 0,
+    "no-empty-label": 0,
+    "no-labels": 2,
+  }
+}
