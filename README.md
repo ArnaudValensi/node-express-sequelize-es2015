@@ -41,7 +41,7 @@ index.js    (Entry point)
 ntask.*     (SSL certificates)
 ```
 
-If you want to better understand the architecture, I recommend you to read this [Caio Ribeiro Pereira's book](https://leanpub.com/building-apis-with-nodejs).
+If you want to have a better understanding of the architecture, I recommend you to read [Caio Ribeiro Pereira's book](https://leanpub.com/building-apis-with-nodejs).
 
 ## Credit
 
